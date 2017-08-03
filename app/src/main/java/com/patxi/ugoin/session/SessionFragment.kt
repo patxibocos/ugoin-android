@@ -1,6 +1,7 @@
 package com.patxi.ugoin.session
 
 import com.patxi.ugoin.BaseFragment
+import com.patxi.ugoin.R
 import com.patxi.ugoin.di.DaggerSessionComponent
 import com.patxi.ugoin.di.SessionModule
 import javax.inject.Inject
@@ -16,5 +17,7 @@ class SessionFragment : BaseFragment(), SessionContract.View {
     override fun injectDependencies() {
         DaggerSessionComponent.builder().sessionModule(SessionModule(this)).build().inject(this)
     }
+
+    override fun getLayout() = R.layout.session
 
 }
