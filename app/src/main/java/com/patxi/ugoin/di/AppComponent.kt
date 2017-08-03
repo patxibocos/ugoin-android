@@ -7,5 +7,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf(AppModule::class, NetModule::class))
 interface AppComponent {
+
     fun inject(mainActivity: MainActivity)
+
 }

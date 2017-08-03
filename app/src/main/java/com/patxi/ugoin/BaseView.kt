@@ -2,6 +2,6 @@ package com.patxi.ugoin
 
 interface BaseView<T : BasePresenter> {
 
-    var presenter: T?
+    var presenter: T
 
 }

@@ -5,5 +5,7 @@ import dagger.Component
 
 @Component(modules = arrayOf(SessionModule::class))
 interface SessionComponent {
+
     fun inject(sessionFragment: SessionFragment)
+
 }

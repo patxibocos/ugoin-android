@@ -9,6 +9,6 @@ import dagger.Provides
 
     @Provides fun provideView() = view
 
-    @Provides fun providePresenter(view: SessionContract.View) = SessionPresenter(view)
+    @Provides fun providePresenter(): SessionContract.Presenter = SessionPresenter(view)
 
 }

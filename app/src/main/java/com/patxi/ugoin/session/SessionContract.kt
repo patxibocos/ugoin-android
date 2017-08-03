@@ -9,7 +9,7 @@ interface SessionContract {
         fun toggleToRecording()
     }
 
-    interface Presenter: BasePresenter {
+    interface Presenter : BasePresenter {
         fun startRecording()
     }
 
