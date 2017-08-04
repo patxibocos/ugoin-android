@@ -1,9 +1,9 @@
-package com.patxi.ugoin.followers
+package com.patxi.ugoin.ui.activity
 
 import com.patxi.ugoin.BasePresenter
 import com.patxi.ugoin.BaseView
 
-interface FollowersContract {
+interface ActivityContract {
 
     interface View : BaseView<Presenter> {
 

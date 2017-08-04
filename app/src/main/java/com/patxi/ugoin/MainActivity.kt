@@ -3,10 +3,10 @@ package com.patxi.ugoin
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import com.patxi.ugoin.activity.ActivityFragment
-import com.patxi.ugoin.followers.FollowersFragment
-import com.patxi.ugoin.profile.ProfileFragment
-import com.patxi.ugoin.session.SessionFragment
+import com.patxi.ugoin.ui.activity.ActivityFragment
+import com.patxi.ugoin.ui.followers.FollowersFragment
+import com.patxi.ugoin.ui.profile.ProfileFragment
+import com.patxi.ugoin.ui.session.SessionFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 

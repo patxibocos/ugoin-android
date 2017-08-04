@@ -1,4 +1,4 @@
-package com.patxi.ugoin.network
+package com.patxi.ugoin.domain.network
 
 import retrofit2.Call
 import retrofit2.http.GET

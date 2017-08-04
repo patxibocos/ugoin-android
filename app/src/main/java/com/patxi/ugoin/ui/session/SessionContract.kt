@@ -1,4 +1,4 @@
-package com.patxi.ugoin.session
+package com.patxi.ugoin.ui.session
 
 import com.patxi.ugoin.BasePresenter
 import com.patxi.ugoin.BaseView

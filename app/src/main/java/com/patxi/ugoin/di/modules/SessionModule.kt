@@ -1,7 +1,7 @@
-package com.patxi.ugoin.di
+package com.patxi.ugoin.di.modules
 
-import com.patxi.ugoin.session.SessionContract
-import com.patxi.ugoin.session.SessionPresenter
+import com.patxi.ugoin.ui.session.SessionContract
+import com.patxi.ugoin.ui.session.SessionPresenter
 import dagger.Module
 import dagger.Provides
 

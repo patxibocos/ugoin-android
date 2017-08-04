@@ -1,4 +1,4 @@
-package com.patxi.ugoin.di
+package com.patxi.ugoin.di.modules
 
 import android.content.SharedPreferences
 import android.preference.PreferenceManager

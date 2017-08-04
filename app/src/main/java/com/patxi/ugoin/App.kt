@@ -1,10 +1,10 @@
 package com.patxi.ugoin
 
 import android.app.Application
-import com.patxi.ugoin.di.AppComponent
-import com.patxi.ugoin.di.AppModule
-import com.patxi.ugoin.di.DaggerAppComponent
-import com.patxi.ugoin.di.NetModule
+import com.patxi.ugoin.di.components.AppComponent
+import com.patxi.ugoin.di.components.DaggerAppComponent
+import com.patxi.ugoin.di.modules.AppModule
+import com.patxi.ugoin.di.modules.NetModule
 
 class App : Application() {
 

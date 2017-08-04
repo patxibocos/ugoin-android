@@ -1,4 +1,4 @@
-package com.patxi.ugoin.network
+package com.patxi.ugoin.domain.network
 
 import okhttp3.Interceptor
 import okhttp3.Response

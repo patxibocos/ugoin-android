@@ -1,4 +1,4 @@
-package com.patxi.ugoin.profile
+package com.patxi.ugoin.ui.profile
 
 import com.patxi.ugoin.BaseFragment
 import com.patxi.ugoin.R

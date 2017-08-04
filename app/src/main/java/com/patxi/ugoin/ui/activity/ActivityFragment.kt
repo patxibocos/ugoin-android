@@ -1,4 +1,4 @@
-package com.patxi.ugoin.activity
+package com.patxi.ugoin.ui.activity
 
 import com.patxi.ugoin.BaseFragment
 import com.patxi.ugoin.R

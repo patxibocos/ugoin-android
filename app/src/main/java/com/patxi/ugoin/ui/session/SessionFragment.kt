@@ -1,9 +1,9 @@
-package com.patxi.ugoin.session
+package com.patxi.ugoin.ui.session
 
 import com.patxi.ugoin.BaseFragment
 import com.patxi.ugoin.R
-import com.patxi.ugoin.di.DaggerSessionComponent
-import com.patxi.ugoin.di.SessionModule
+import com.patxi.ugoin.di.components.DaggerSessionComponent
+import com.patxi.ugoin.di.modules.SessionModule
 import javax.inject.Inject
 
 class SessionFragment : BaseFragment(), SessionContract.View {

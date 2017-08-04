@@ -1,4 +1,4 @@
-package com.patxi.ugoin.followers
+package com.patxi.ugoin.ui.followers
 
 import com.patxi.ugoin.BaseFragment
 import com.patxi.ugoin.R

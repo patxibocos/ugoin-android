@@ -1,4 +1,4 @@
-package com.patxi.ugoin.di
+package com.patxi.ugoin.di.modules
 
 import com.patxi.ugoin.App
 import dagger.Module
