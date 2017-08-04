@@ -1,17 +1,16 @@
 package com.patxi.ugoin.ui.profile
 
-import com.patxi.ugoin.BaseFragment
+import android.os.Bundle
+import android.support.v7.preference.PreferenceFragmentCompat
 import com.patxi.ugoin.R
 import javax.inject.Inject
 
-class ProfileFragment : BaseFragment(), ProfileContract.View {
+class ProfileFragment : PreferenceFragmentCompat(), ProfileContract.View {
 
-    @Inject override lateinit var presenter: ProfileContract.Presenter
-
-    override fun injectDependencies() {
-
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        addPreferencesFromResource(R.xml.preferences);
     }
 
-    override fun getLayout() = R.layout.profile
+    @Inject override lateinit var presenter: ProfileContract.Presenter
 
 }
