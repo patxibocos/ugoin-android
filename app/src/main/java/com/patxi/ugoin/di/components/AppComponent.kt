@@ -1,6 +1,5 @@
 package com.patxi.ugoin.di.components
 
-import com.patxi.ugoin.MainActivity
 import com.patxi.ugoin.di.modules.AppModule
 import com.patxi.ugoin.di.modules.NetModule
 import dagger.Component
@@ -10,6 +9,5 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(AppModule::class, NetModule::class))
 interface AppComponent {
 
-    fun inject(mainActivity: MainActivity)
 
 }

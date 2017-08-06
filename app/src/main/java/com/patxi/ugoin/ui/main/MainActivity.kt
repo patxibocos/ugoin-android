@@ -1,33 +1,34 @@
-package com.patxi.ugoin
+package com.patxi.ugoin.ui.main
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.patxi.ugoin.ui.activity.ActivityFragment
-import com.patxi.ugoin.ui.followers.FollowersFragment
+import com.patxi.ugoin.App
+import com.patxi.ugoin.FragmentStateManager
+import com.patxi.ugoin.R
+import com.patxi.ugoin.di.components.DaggerMainComponent
+import com.patxi.ugoin.di.modules.MainModule
 import com.patxi.ugoin.ui.profile.ProfileFragment
-import com.patxi.ugoin.ui.session.SessionFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
+class MainActivity : AppCompatActivity(), MainContract.View {
 
-class MainActivity : AppCompatActivity() {
+    @Inject override lateinit var presenter: MainContract.Presenter
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_session -> {
-                viewPager.setCurrentItem(0, false)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_activity -> {
-                viewPager.setCurrentItem(1, false)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_followers -> {
-                viewPager.setCurrentItem(2, false)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
-                viewPager.setCurrentItem(3, false)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -36,17 +37,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (application as App).component.inject(this)
         setContentView(R.layout.activity_main)
-        viewPager.setOnTouchListener({ _, _ ->
-            true
-        })
-        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-        viewPagerAdapter.addFragment(SessionFragment())
-        viewPagerAdapter.addFragment(ActivityFragment())
-        viewPagerAdapter.addFragment(FollowersFragment())
-        viewPagerAdapter.addFragment(ProfileFragment())
-        viewPager.adapter = viewPagerAdapter
+        DaggerMainComponent.builder().mainModule(MainModule(this)).build().inject(this)
+        //(application as App).component.inject(this)
+        val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
+            override fun getItem(position: Int): Fragment {
+                return ProfileFragment()
+            }
+        }
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
     }
