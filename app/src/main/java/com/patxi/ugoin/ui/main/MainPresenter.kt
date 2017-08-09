@@ -5,11 +5,13 @@ import com.patxi.ugoin.domain.usecases.SampleUseCase
 import javax.inject.Inject
 
 @PerActivity
-class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
-
-    @Inject lateinit var sampleUseCase: SampleUseCase
+class MainPresenter @Inject constructor(val view: MainContract.View, val sampleUseCase: SampleUseCase) : MainContract.Presenter {
 
     override fun start() {
+
+    }
+
+    override fun whatever() {
 
     }
 

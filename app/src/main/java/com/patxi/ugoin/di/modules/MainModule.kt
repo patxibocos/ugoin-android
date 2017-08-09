@@ -10,6 +10,6 @@ import dagger.Provides
 
     @Provides @PerActivity fun provideView() = view
 
-    @Provides @PerActivity fun providePresenter(): MainContract.Presenter = MainPresenter(view)
+    @Provides @PerActivity fun providePresenter(mainPresenter: MainPresenter): MainContract.Presenter = mainPresenter
 
 }

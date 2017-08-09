@@ -19,7 +19,6 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), MainContract.View {
 
     @Inject override lateinit var presenter: MainContract.Presenter
-    @Inject lateinit var retrofit: Retrofit
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -45,7 +44,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         val appComponent = DaggerAppComponent.builder().netModule(NetModule("http://www.google.es")).build()
         appComponent.inject(this)
         DaggerMainComponent.builder().mainModule(MainModule(this)).appComponent(appComponent).build().inject(this)
-        //(application as App).component.inject(this)
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
             override fun getItem(position: Int): Fragment {
                 return ProfileFragment()
