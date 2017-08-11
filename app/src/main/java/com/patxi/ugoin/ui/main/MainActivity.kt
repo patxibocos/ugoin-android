@@ -41,9 +41,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val appComponent = DaggerAppComponent.builder().netModule(NetModule("http://www.google.es")).build()
+        val appComponent = DaggerAppComponent.builder().netModule(NetModule("http://ugoin-elb-188079356.us-west-2.elb.amazonaws.com")).build()
         appComponent.inject(this)
         DaggerMainComponent.builder().mainModule(MainModule(this)).appComponent(appComponent).build().inject(this)
+        presenter.whatever()
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
             override fun getItem(position: Int): Fragment {
                 return ProfileFragment()

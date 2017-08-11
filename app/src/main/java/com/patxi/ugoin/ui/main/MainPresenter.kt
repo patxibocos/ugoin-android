@@ -12,7 +12,7 @@ class MainPresenter @Inject constructor(val view: MainContract.View, val sampleU
     }
 
     override fun whatever() {
-
+        sampleUseCase.bla()
     }
 
 }
