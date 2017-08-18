@@ -9,16 +9,17 @@ import javax.inject.Inject
 
 class SampleUseCase @Inject constructor() {
 
-    @Inject lateinit var ugoinBackendService: UgoinBackendService
+    @Inject
+    lateinit var ugoinBackendService: UgoinBackendService
 
     fun bla() {
-        ugoinBackendService.getFollows().enqueue(object :Callback<List<Follower>> {
+        ugoinBackendService.getFollows().enqueue(object : Callback<List<Follower>> {
             override fun onFailure(call: Call<List<Follower>>?, t: Throwable?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onResponse(call: Call<List<Follower>>?, response: Response<List<Follower>>?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
         })
     }

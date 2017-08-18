@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import com.patxi.ugoin.App
 import com.patxi.ugoin.FragmentStateManager
 import com.patxi.ugoin.R
 import com.patxi.ugoin.di.components.DaggerAppComponent
@@ -39,9 +40,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val appComponent = DaggerAppComponent.builder().netModule(NetModule("http://ugoin-elb-188079356.us-west-2.elb.amazonaws.com")).build()
-        appComponent.inject(this)
-        DaggerMainComponent.builder().mainModule(MainModule(this)).appComponent(appComponent).build().inject(this)
+        val appComponent = (application as App).appComponent
+        DaggerMainComponent.builder().appComponent(appComponent).mainModule(MainModule(this)).build().inject(this)
         presenter.whatever()
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
             override fun getItem(position: Int): Fragment {

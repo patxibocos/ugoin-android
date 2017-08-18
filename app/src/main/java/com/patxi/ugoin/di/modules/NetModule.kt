@@ -11,15 +11,22 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module class NetModule(val baseUrl: String) {
+@Module
+class NetModule(private val baseUrl: String) {
 
-    @Provides @Singleton fun provideGson(): Gson = GsonBuilder().create()
+    @Provides
+    @Singleton
+    fun provideGson(): Gson = GsonBuilder().create()
 
-    @Provides @Singleton fun provideOkHttpClient(): OkHttpClient {
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder().addInterceptor(AuthInterceptor("5801f792-701e-470a-850e-6ffc4f2be731")).build()
     }
 
-    @Provides @Singleton fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+    @Provides
+    @Singleton
+    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl(baseUrl)
@@ -27,6 +34,8 @@ import javax.inject.Singleton
                 .build()
     }
 
-    @Provides @Singleton fun provideUgoinBackendService(retrofit: Retrofit): UgoinBackendService = retrofit.create(UgoinBackendService::class.java)
+    @Provides
+    @Singleton
+    fun provideUgoinBackendService(retrofit: Retrofit): UgoinBackendService = retrofit.create(UgoinBackendService::class.java)
 
 }
