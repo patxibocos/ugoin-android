@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.patxi.ugoin.App
 import com.patxi.ugoin.FragmentStateManager
 import com.patxi.ugoin.R
 import com.patxi.ugoin.di.components.DaggerAppComponent
@@ -13,7 +12,6 @@ import com.patxi.ugoin.di.modules.MainModule
 import com.patxi.ugoin.di.modules.NetModule
 import com.patxi.ugoin.ui.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Retrofit
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainContract.View {
