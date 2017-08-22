@@ -7,10 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import com.patxi.ugoin.App
 import com.patxi.ugoin.FragmentStateManager
 import com.patxi.ugoin.R
-import com.patxi.ugoin.di.components.DaggerAppComponent
 import com.patxi.ugoin.di.components.DaggerMainComponent
 import com.patxi.ugoin.di.modules.MainModule
-import com.patxi.ugoin.di.modules.NetModule
 import com.patxi.ugoin.ui.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -18,6 +16,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), MainContract.View {
 
     @Inject override lateinit var presenter: MainContract.Presenter
+    @Inject lateinit var app: App
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val appComponent = (application as App).appComponent
+        val appComponent = app.component
         DaggerMainComponent.builder().appComponent(appComponent).mainModule(MainModule(this)).build().inject(this)
         presenter.whatever()
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
