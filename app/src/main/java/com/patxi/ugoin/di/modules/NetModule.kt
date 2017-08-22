@@ -20,8 +20,12 @@ class NetModule(private val baseUrl: String) {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder().addInterceptor(AuthInterceptor("5801f792-701e-470a-850e-6ffc4f2be731")).build()
+    fun provideAuthInterceptor(): AuthInterceptor = AuthInterceptor("5801f792-701e-470a-850e-6ffc4f2be731")
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
+        return OkHttpClient.Builder().addInterceptor(authInterceptor).build()
     }
 
     @Provides

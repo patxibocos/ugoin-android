@@ -16,7 +16,6 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), MainContract.View {
 
     @Inject override lateinit var presenter: MainContract.Presenter
-    @Inject lateinit var app: App
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val appComponent = app.component
+        val appComponent = (application as App).component
         DaggerMainComponent.builder().appComponent(appComponent).mainModule(MainModule(this)).build().inject(this)
         presenter.whatever()
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
@@ -48,6 +47,5 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             }
         }
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
     }
 }
