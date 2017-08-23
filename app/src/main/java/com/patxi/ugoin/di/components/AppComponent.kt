@@ -1,5 +1,6 @@
 package com.patxi.ugoin.di.components
 
+import android.content.SharedPreferences
 import com.patxi.ugoin.App
 import com.patxi.ugoin.di.modules.AppModule
 import com.patxi.ugoin.di.modules.NetModule
@@ -15,6 +16,8 @@ interface AppComponent {
     fun authInterceptor(): AuthInterceptor
 
     fun ugoinBackendService(): UgoinBackendService
+
+    fun sharedPreferences(): SharedPreferences
 
     fun app(): App
 

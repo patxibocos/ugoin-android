@@ -3,17 +3,17 @@ package com.patxi.ugoin.ui.main
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
-import com.patxi.ugoin.App
 import com.patxi.ugoin.FragmentStateManager
 import com.patxi.ugoin.R
 import com.patxi.ugoin.di.components.DaggerMainComponent
 import com.patxi.ugoin.di.modules.MainModule
+import com.patxi.ugoin.ui.BaseActivity
+import com.patxi.ugoin.ui.app
 import com.patxi.ugoin.ui.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), MainContract.View {
+class MainActivity : BaseActivity(), MainContract.View {
 
     @Inject override lateinit var presenter: MainContract.Presenter
 
@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val appComponent = (application as App).component
-        DaggerMainComponent.builder().appComponent(appComponent).mainModule(MainModule(this)).build().inject(this)
+        DaggerMainComponent.builder().appComponent(app.component).mainModule(MainModule(this)).build().inject(this)
         presenter.whatever()
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
             override fun getItem(position: Int): Fragment {

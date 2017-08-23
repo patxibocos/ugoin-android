@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -34,6 +31,7 @@ ext {
     supportLibraryVersion = '26.0.1'
     testRunnerVersion = '1.0.0'
     daggerVersion = '2.11'
+    rxAndroidVersion = '2.0.1'
 }
 
 dependencies {
@@ -51,6 +49,7 @@ dependencies {
     }
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
