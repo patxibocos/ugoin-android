@@ -31,7 +31,7 @@ ext {
     supportLibraryVersion = '26.0.1'
     testRunnerVersion = '1.0.0'
     daggerVersion = '2.11'
-    rxAndroidVersion = '2.0.1'
+    ankoVersion = '0.10.1'
 }
 
 dependencies {
@@ -49,7 +49,7 @@ dependencies {
     }
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.google.dagger:dagger:$daggerVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "org.jetbrains.anko:anko-commons:$ankoVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"

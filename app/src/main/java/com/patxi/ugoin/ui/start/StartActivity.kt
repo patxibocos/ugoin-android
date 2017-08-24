@@ -15,6 +15,7 @@ class StartActivity : AppCompatActivity(), StartContract.View {
         super.onCreate(savedInstanceState)
         val appComponent = (application as App).component
         DaggerStartComponent.builder().appComponent(appComponent).startModule(StartModule(this)).build().inject(this)
+        presenter.start()
     }
 
 }
