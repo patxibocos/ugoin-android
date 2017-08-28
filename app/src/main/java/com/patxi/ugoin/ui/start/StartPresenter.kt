@@ -1,6 +1,5 @@
 package com.patxi.ugoin.ui.start
 
-import com.patxi.ugoin.Either
 import com.patxi.ugoin.domain.usecases.CheckAuthStatus
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -10,11 +9,12 @@ class StartPresenter @Inject constructor(val view: StartContract.View, private v
 
     override fun start() {
         doAsync {
-            val result = checkAuthStatus.execute()
+            val userAuthenticated = checkAuthStatus.execute()
             uiThread {
-                when (result) {
-                    is Either.Left -> TODO()
-                    is Either.Right -> TODO()
+                if (userAuthenticated) {
+                    view.goToUserView()
+                } else {
+                    view.goToLoginView()
                 }
             }
         }

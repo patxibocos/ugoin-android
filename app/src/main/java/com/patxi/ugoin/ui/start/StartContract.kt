@@ -6,7 +6,8 @@ import com.patxi.ugoin.BaseView
 interface StartContract {
 
     interface View : BaseView<Presenter> {
-
+        fun goToLoginView()
+        fun goToUserView()
     }
 
     interface Presenter : BasePresenter {
