@@ -14,7 +14,7 @@ class StartPresenter @Inject constructor(val view: StartContract.View, private v
                 if (userAuthenticated) {
                     view.goToUserView()
                 } else {
-                    view.goToLoginView()
+                    view.goToAuthView()
                 }
             }
         }
