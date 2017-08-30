@@ -15,4 +15,12 @@ class RegisterFragment() : BaseFragment(), AuthContract.LoginView {
         return R.layout.activity_main
     }
 
+    override fun hide() {
+
+    }
+
+    override fun show() {
+
+    }
+
 }

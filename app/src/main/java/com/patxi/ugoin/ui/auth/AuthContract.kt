@@ -6,15 +6,18 @@ import com.patxi.ugoin.BaseView
 class AuthContract {
 
     interface LoginView : BaseView<Presenter> {
-
+        fun hide()
+        fun show()
     }
 
     interface RegisterView : BaseView<Presenter> {
-
+        fun hide()
+        fun show()
     }
 
     interface Presenter : BasePresenter {
-
+        fun login(username: String, password: String)
+        fun register(username: String, password: String)
     }
 
 }
