@@ -3,7 +3,7 @@ package com.patxi.ugoin.ui.auth
 import com.patxi.ugoin.BaseFragment
 import com.patxi.ugoin.R
 
-class RegisterFragment() : BaseFragment(), AuthContract.LoginView {
+class RegisterFragment() : BaseFragment(), AuthContract.RegisterView {
 
     override lateinit var presenter: AuthContract.Presenter
 
