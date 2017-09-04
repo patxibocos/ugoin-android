@@ -12,7 +12,7 @@ class RegisterFragment() : BaseFragment(), AuthContract.RegisterView {
     }
 
     override fun getLayout(): Int {
-        return R.layout.activity_main
+        return R.layout.register
     }
 
     override fun hide() {
