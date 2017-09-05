@@ -1,18 +1,17 @@
 package com.patxi.ugoin.ui.auth
 
+import com.patxi.ugoin.domain.usecases.RegisterUser
 import javax.inject.Inject
 
-class AuthPresenter @Inject constructor(val loginView: AuthContract.LoginView, val registerView: AuthContract.RegisterView) : AuthContract.Presenter {
+class AuthPresenter @Inject constructor(private val loginView: AuthContract.LoginView, private val registerView: AuthContract.RegisterView, private val registerUser: RegisterUser) : AuthContract.Presenter {
 
     override fun start() {
         loginView.hide()
         registerView.show()
-        // TODO Set register fragment as active
-        // TODO Set login fragment as inactive
     }
 
     override fun register(username: String, password: String) {
-        // TODO Do request, get token, set interceptor token, go to user activity
+        registerUser.execute(username, password)
     }
 
     override fun login(username: String, password: String) {

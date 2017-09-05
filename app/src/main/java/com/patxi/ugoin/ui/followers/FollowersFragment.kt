@@ -12,6 +12,10 @@ class FollowersFragment : BaseFragment(), FollowersContract.View {
 
     }
 
+    override fun start() {
+
+    }
+
     override fun getLayout() = R.layout.followers
 
 }

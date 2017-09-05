@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import com.patxi.ugoin.domain.network.AuthInterceptor
 import javax.inject.Inject
 
-class CheckAuthStatus @Inject constructor(private val sharedPreferences: SharedPreferences, private val authInterceptor: AuthInterceptor) : BaseUseCase<Boolean>() {
+class CheckAuthStatus @Inject constructor(private val sharedPreferences: SharedPreferences, private val authInterceptor: AuthInterceptor) : BaseUseCase<Boolean> {
 
     companion object {
         const val AUTH_TOKEN_STORED_KEY = "token"

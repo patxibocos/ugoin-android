@@ -10,6 +10,10 @@ class SessionFragment : BaseFragment(), SessionContract.View {
 
     @Inject override lateinit var presenter: SessionContract.Presenter
 
+    override fun start() {
+
+    }
+
     override fun toggleToRecording() {
 
     }

@@ -12,6 +12,10 @@ class ActivityFragment : BaseFragment(), ActivityContract.View {
 
     }
 
+    override fun start() {
+
+    }
+
     override fun getLayout() = R.layout.activity
 
 }

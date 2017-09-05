@@ -1,7 +1,7 @@
 package com.patxi.ugoin.domain.usecases
 
-abstract class BaseUseCase<out T> {
+interface BaseUseCase<out T> {
 
-    abstract fun execute(): T
+    fun execute(): T
 
 }
