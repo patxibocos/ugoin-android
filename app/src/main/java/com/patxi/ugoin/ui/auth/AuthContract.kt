@@ -13,6 +13,7 @@ class AuthContract {
     interface RegisterView : BaseView<Presenter> {
         fun hide()
         fun show()
+        fun showError(error: String?)
     }
 
     interface Presenter : BasePresenter {
