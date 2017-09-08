@@ -2,8 +2,8 @@ package com.patxi.ugoin.ui.auth
 
 import com.patxi.ugoin.BaseFragment
 import com.patxi.ugoin.R
+import com.patxi.ugoin.snack
 import kotlinx.android.synthetic.main.register.*
-import org.jetbrains.anko.support.v4.toast
 
 class RegisterFragment : BaseFragment(), AuthContract.RegisterView {
 
@@ -32,7 +32,7 @@ class RegisterFragment : BaseFragment(), AuthContract.RegisterView {
     }
 
     override fun showError(error: String?) {
-        error?.let { toast(it) }
+        error?.let { view?.snack(it) { } }
     }
 
 }

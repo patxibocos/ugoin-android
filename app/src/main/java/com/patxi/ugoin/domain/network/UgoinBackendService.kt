@@ -10,6 +10,10 @@ import retrofit2.http.POST
 interface UgoinBackendService {
 
     @FormUrlEncoded
+    @POST("/user/login")
+    fun login(@Field("username") username: String, @Field("password") password: String): Call<String>
+
+    @FormUrlEncoded
     @POST("/user")
     fun register(@Field("username") username: String, @Field("password") password: String): Call<String>
 

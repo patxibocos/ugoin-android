@@ -51,7 +51,6 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "org.jetbrains.anko:anko-commons:$ankoVersion"
-    implementation "org.jetbrains.anko:anko-support-v4-commons:$ankoVersion"
     implementation "org.funktionale:funktionale-either:$funktionaleVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     testImplementation "junit:junit:$junitVersion"

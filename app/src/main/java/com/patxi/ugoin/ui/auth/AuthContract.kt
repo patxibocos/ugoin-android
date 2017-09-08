@@ -8,6 +8,7 @@ class AuthContract {
     interface LoginView : BaseView<Presenter> {
         fun hide()
         fun show()
+        fun showError(error: String?)
     }
 
     interface RegisterView : BaseView<Presenter> {
