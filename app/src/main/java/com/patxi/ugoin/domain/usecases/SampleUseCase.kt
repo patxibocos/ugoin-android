@@ -1,7 +1,7 @@
 package com.patxi.ugoin.domain.usecases
 
 import com.patxi.ugoin.domain.network.UgoinBackendService
-import com.patxi.ugoin.domain.network.model.Follower
+import com.patxi.ugoin.domain.network.model.response.Follower
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

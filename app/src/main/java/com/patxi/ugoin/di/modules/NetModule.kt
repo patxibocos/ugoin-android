@@ -20,7 +20,7 @@ class NetModule(private val baseUrl: String) {
 
     @Provides
     @Singleton
-    fun provideAuthInterceptor(): AuthInterceptor = AuthInterceptor("5801f792-701e-470a-850e-6ffc4f2be731")
+    fun provideAuthInterceptor(): AuthInterceptor = AuthInterceptor()
 
     @Provides
     @Singleton
