@@ -7,7 +7,7 @@ import com.patxi.ugoin.di.components.DaggerAuthComponent
 import com.patxi.ugoin.di.modules.AuthModule
 import com.patxi.ugoin.ui.BaseActivity
 import com.patxi.ugoin.ui.app
-import kotlinx.android.synthetic.main.activity_auth.*
+import kotlinx.android.synthetic.main.auth.*
 import javax.inject.Inject
 
 class AuthActivity : BaseActivity() {
@@ -19,7 +19,7 @@ class AuthActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        setContentView(R.layout.auth)
         DaggerAuthComponent.builder().appComponent(app.component).authModule(AuthModule(loginFragment, registerFragment)).build().inject(this)
         loginFragment.presenter = presenter
         registerFragment.presenter = presenter

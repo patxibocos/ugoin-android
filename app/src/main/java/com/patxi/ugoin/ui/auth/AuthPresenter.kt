@@ -11,8 +11,6 @@ import javax.inject.Inject
 class AuthPresenter @Inject constructor(private val loginView: AuthContract.LoginView, private val registerView: AuthContract.RegisterView, private val loginUser: LoginUser, private val registerUser: RegisterUser, private val authInterceptor: AuthInterceptor) : AuthContract.Presenter {
 
     override fun start() {
-        loginView.hide()
-        registerView.show()
     }
 
     override fun register(username: String, password: String) {

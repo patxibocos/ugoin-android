@@ -10,7 +10,7 @@ import com.patxi.ugoin.di.modules.MainModule
 import com.patxi.ugoin.ui.BaseActivity
 import com.patxi.ugoin.ui.app
 import com.patxi.ugoin.ui.profile.ProfileFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainContract.View {
@@ -37,7 +37,7 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main)
         DaggerMainComponent.builder().appComponent(app.component).mainModule(MainModule(this)).build().inject(this)
         presenter.whatever()
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
