@@ -26,13 +26,15 @@ ext {
     constraintLayoutVersion = '1.0.2'
     espressoVersion = '3.0.0'
     junitVersion = '4.12'
-    okHttpVersion = '3.8.1'
+    okHttpVersion = '3.9.0'
     retrofitVersion = '2.3.0'
     supportLibraryVersion = '26.0.2'
     testRunnerVersion = '1.0.0'
     daggerVersion = '2.11'
     ankoVersion = '0.10.1'
     funktionaleVersion = '1.1'
+    mockitoKotlinVersion = '1.5.0'
+    kluentVersion = '1.4'
 }
 
 dependencies {
@@ -54,6 +56,8 @@ dependencies {
     implementation "org.funktionale:funktionale-either:$funktionaleVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     testImplementation "junit:junit:$junitVersion"
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion"
+    testImplementation "org.amshove.kluent:kluent:$kluentVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
 }
