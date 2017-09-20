@@ -15,7 +15,7 @@ interface UgoinBackendService {
     fun login(@Body body: LoginUserRequest): Call<LoginUserResponse>
 
     @POST("/user")
-    fun register(@Body body: RegisterUserRequest): Call<String>
+    fun register(@Body body: RegisterUserRequest): Call<LoginUserResponse>
 
     @GET("/follows")
     fun getFollows(): Call<List<Follower>>

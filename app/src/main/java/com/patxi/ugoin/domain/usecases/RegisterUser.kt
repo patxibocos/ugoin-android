@@ -10,7 +10,7 @@ class RegisterUser @Inject constructor(private val ugoinBackendService: UgoinBac
     fun execute(username: String, password: String): Either<String?, String?> {
         val response = ugoinBackendService.register(RegisterUserRequest(username, password)).execute()
         return when (response.code()) {
-            200 -> Either.right(response.body())
+            200 -> Either.right(response.body()?.token)
             else -> Either.left(response.errorBody()?.string())
         }
     }

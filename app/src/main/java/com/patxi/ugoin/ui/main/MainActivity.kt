@@ -39,7 +39,6 @@ class MainActivity : BaseActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
         DaggerMainComponent.builder().appComponent(app.component).mainModule(MainModule(this)).build().inject(this)
-        presenter.whatever()
         val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
             override fun getItem(position: Int): Fragment {
                 return ProfileFragment()

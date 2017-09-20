@@ -28,7 +28,7 @@ ext {
     junitVersion = '4.12'
     okHttpVersion = '3.9.0'
     retrofitVersion = '2.3.0'
-    supportLibraryVersion = '26.0.2'
+    supportLibraryVersion = '26.1.0'
     testRunnerVersion = '1.0.0'
     daggerVersion = '2.11'
     ankoVersion = '0.10.1'
