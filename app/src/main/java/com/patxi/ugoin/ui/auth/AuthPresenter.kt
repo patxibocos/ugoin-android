@@ -3,7 +3,7 @@ package com.patxi.ugoin.ui.auth
 import com.patxi.ugoin.domain.network.AuthInterceptor
 import com.patxi.ugoin.domain.usecases.LoginUser
 import com.patxi.ugoin.domain.usecases.RegisterUser
-import org.funktionale.either.Either
+import kategory.Either
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import javax.inject.Inject
@@ -33,9 +33,9 @@ class AuthPresenter @Inject constructor(private val loginView: AuthContract.Logi
 
     private fun handleRegisterUserResponse(response: Either<String?, String?>) {
         when (response) {
-            is Either.Left -> registerView.showError(response.left().get())
+            is Either.Left -> registerView.showError(response.a)
             is Either.Right -> {
-                authInterceptor.authToken = response.right().get()
+                authInterceptor.authToken = response.b
                 goToMain()
             }
         }
@@ -43,9 +43,9 @@ class AuthPresenter @Inject constructor(private val loginView: AuthContract.Logi
 
     private fun handleLoginUserResponse(response: Either<String?, String?>) {
         when (response) {
-            is Either.Left -> loginView.showError(response.left().get())
+            is Either.Left -> loginView.showError(response.a)
             is Either.Right -> {
-                authInterceptor.authToken = response.right().get()
+                authInterceptor.authToken = response.b
                 goToMain()
             }
         }

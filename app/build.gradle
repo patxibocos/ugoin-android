@@ -32,7 +32,7 @@ ext {
     testRunnerVersion = '1.0.0'
     daggerVersion = '2.11'
     ankoVersion = '0.10.1'
-    funktionaleVersion = '1.1'
+    kategoryVersion = '0.3.8'
     mockitoKotlinVersion = '1.5.0'
     kluentVersion = '1.4'
 }
@@ -53,7 +53,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "org.jetbrains.anko:anko-commons:$ankoVersion"
-    implementation "org.funktionale:funktionale-either:$funktionaleVersion"
+    implementation "io.kategory:kategory:$kategoryVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion"

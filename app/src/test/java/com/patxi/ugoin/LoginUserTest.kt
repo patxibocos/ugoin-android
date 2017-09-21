@@ -6,9 +6,9 @@ import com.nhaarman.mockito_kotlin.whenever
 import com.patxi.ugoin.domain.network.UgoinBackendService
 import com.patxi.ugoin.domain.network.model.response.LoginUserResponse
 import com.patxi.ugoin.domain.usecases.LoginUser
+import kategory.Either
 import okhttp3.ResponseBody
 import org.amshove.kluent.shouldEqual
-import org.funktionale.either.Either
 import org.junit.Before
 import org.junit.Test
 import retrofit2.Call
@@ -34,7 +34,7 @@ class LoginUserTest {
         whenever(response.execute()).thenReturn(Response.success(LoginUserResponse(token)))
         whenever(ugoinBackendService.login(any())).thenReturn(response)
         val result = loginUser.execute(username, password)
-        result shouldEqual Either.right(token)
+        result shouldEqual Either.Right(token)
     }
 
     @Test
@@ -43,7 +43,7 @@ class LoginUserTest {
         whenever(response.execute()).thenReturn(Response.error(401, ResponseBody.create(null, error)))
         whenever(ugoinBackendService.login(any())).thenReturn(response)
         val result = loginUser.execute("", "")
-        result shouldEqual Either.left(error)
+        result shouldEqual Either.Left(error)
     }
 
 }
