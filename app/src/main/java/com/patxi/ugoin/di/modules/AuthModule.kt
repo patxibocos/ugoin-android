@@ -7,7 +7,11 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class AuthModule(val loginView: AuthContract.LoginView, val registerView: AuthContract.RegisterView) {
+class AuthModule(private val authView: AuthContract.AuthView, private val loginView: AuthContract.LoginView, private val registerView: AuthContract.RegisterView) {
+
+    @Provides
+    @PerActivity
+    fun provideAuthView() = authView
 
     @Provides
     @PerActivity

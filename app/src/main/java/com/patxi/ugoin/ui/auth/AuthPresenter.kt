@@ -8,9 +8,10 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import javax.inject.Inject
 
-class AuthPresenter @Inject constructor(private val loginView: AuthContract.LoginView, private val registerView: AuthContract.RegisterView, private val loginUser: LoginUser, private val registerUser: RegisterUser, private val authInterceptor: AuthInterceptor) : AuthContract.Presenter {
+class AuthPresenter @Inject constructor(private val authView: AuthContract.AuthView, private val loginView: AuthContract.LoginView, private val registerView: AuthContract.RegisterView, private val loginUser: LoginUser, private val registerUser: RegisterUser, private val authInterceptor: AuthInterceptor) : AuthContract.Presenter {
 
     override fun start() {
+
     }
 
     override fun register(username: String, password: String) {
@@ -53,6 +54,14 @@ class AuthPresenter @Inject constructor(private val loginView: AuthContract.Logi
 
     private fun goToMain() {
         // TODO Go to main
+    }
+
+    override fun login() {
+        authView.goToLogin()
+    }
+
+    override fun register() {
+        authView.goToRegister()
     }
 
 }

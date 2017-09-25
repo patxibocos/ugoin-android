@@ -10,9 +10,9 @@ import com.patxi.ugoin.ui.app
 import kotlinx.android.synthetic.main.auth_container.*
 import javax.inject.Inject
 
-class AuthActivity : BaseActivity() {
+class AuthActivity : BaseActivity(), AuthContract.AuthView {
 
-    @Inject lateinit var presenter: AuthContract.Presenter
+    @Inject override lateinit var presenter: AuthContract.Presenter
 
     private val authFragment = AuthFragment()
     private val loginFragment = LoginFragment()
@@ -22,11 +22,20 @@ class AuthActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.auth_container)
         addFragment(authFragment, container.id)
-        DaggerAuthComponent.builder().appComponent(app.component).authModule(AuthModule(loginFragment, registerFragment)).build().inject(this)
+        DaggerAuthComponent.builder().appComponent(app.component).authModule(AuthModule(this, loginFragment, registerFragment)).build().inject(this)
         authFragment.presenter = presenter
         loginFragment.presenter = presenter
         registerFragment.presenter = presenter
         presenter.start()
     }
+
+    override fun goToLogin() {
+        addFragment(loginFragment, container.id)
+    }
+
+    override fun goToRegister() {
+        addFragment(registerFragment, container.id)
+    }
+
 
 }

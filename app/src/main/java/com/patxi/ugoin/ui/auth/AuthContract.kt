@@ -23,6 +23,8 @@ class AuthContract {
     }
 
     interface Presenter : BasePresenter {
+        fun login()
+        fun register()
         fun login(username: String, password: String)
         fun register(username: String, password: String)
     }
