@@ -1,16 +1,16 @@
 package com.patxi.ugoin.ui.init
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.patxi.ugoin.App
 import com.patxi.ugoin.di.components.DaggerInitComponent
 import com.patxi.ugoin.di.modules.InitModule
 import com.patxi.ugoin.startActivity
+import com.patxi.ugoin.ui.BaseActivity
 import com.patxi.ugoin.ui.auth.AuthActivity
 import com.patxi.ugoin.ui.main.MainActivity
 import javax.inject.Inject
 
-class InitActivity : AppCompatActivity(), InitContract.View {
+class InitActivity : BaseActivity(), InitContract.View {
 
     @Inject override lateinit var presenter: InitContract.Presenter
 

@@ -2,14 +2,11 @@ package com.patxi.ugoin.ui.main
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
-import com.patxi.ugoin.FragmentStateManager
 import com.patxi.ugoin.R
 import com.patxi.ugoin.di.components.DaggerMainComponent
 import com.patxi.ugoin.di.modules.MainModule
 import com.patxi.ugoin.ui.BaseActivity
 import com.patxi.ugoin.ui.app
-import com.patxi.ugoin.ui.profile.ProfileFragment
 import kotlinx.android.synthetic.main.main.*
 import javax.inject.Inject
 
@@ -39,11 +36,6 @@ class MainActivity : BaseActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
         DaggerMainComponent.builder().appComponent(app.component).mainModule(MainModule(this)).build().inject(this)
-        val fragmentStateManager = object : FragmentStateManager(content, supportFragmentManager) {
-            override fun getItem(position: Int): Fragment {
-                return ProfileFragment()
-            }
-        }
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 }

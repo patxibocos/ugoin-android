@@ -1,12 +1,11 @@
 package com.patxi.ugoin
 
+import android.app.Activity
+import android.app.Fragment
+import android.app.FragmentTransaction
 import android.content.Intent
 import android.content.SharedPreferences
 import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 
 inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
@@ -17,22 +16,22 @@ inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
 
 fun SharedPreferences.Editor.set(pair: Pair<String, String>) = putString(pair.first, pair.second)
 
-inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
+inline fun android.app.FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
     val fragmentTransaction = beginTransaction()
     fragmentTransaction.func()
     fragmentTransaction.commit()
 }
 
-fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int) {
-    supportFragmentManager.inTransaction { add(frameId, fragment) }
+fun Activity.addFragment(fragment: Fragment, frameId: Int) {
+    fragmentManager.inTransaction { add(frameId, fragment) }
 }
 
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
-    supportFragmentManager.inTransaction { replace(frameId, fragment) }
+fun Activity.replaceFragment(fragment: Fragment, frameId: Int) {
+    fragmentManager.inTransaction { replace(frameId, fragment) }
 }
 
-inline fun <reified T : AppCompatActivity> AppCompatActivity.startActivity() {
+inline fun <reified T : Activity> Activity.startActivity() {
     val intent = Intent(this, T::class.java)
     startActivity(intent)
 }

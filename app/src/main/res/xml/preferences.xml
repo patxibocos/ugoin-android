@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.preference.PreferenceCategory android:title="Times">
-        <android.support.v7.preference.EditTextPreference
+    <PreferenceCategory android:title="Times">
+        <EditTextPreference
             android:defaultValue="Patxi Contador is at"
             android:inputType="text"
             android:key="CUSTOM_MESSAGE_KEY"
             android:singleLine="true"
             android:summary="Message text to send through Telegram"
             android:title="Custom message" />
-    </android.support.v7.preference.PreferenceCategory>
+    </PreferenceCategory>
 
-    <android.support.v7.preference.PreferenceCategory android:title="Times">
+    <PreferenceCategory android:title="Times">
 
-        <android.support.v7.preference.EditTextPreference
+        <EditTextPreference
             android:defaultValue="30"
             android:inputType="number"
             android:key="ALARM_INTERVAL_KEY"
@@ -21,7 +21,7 @@
             android:summary="Notify interval time in minutes"
             android:title="Notify interval" />
 
-        <android.support.v7.preference.EditTextPreference
+        <EditTextPreference
             android:defaultValue="5"
             android:inputType="number"
             android:key="ALARM_INTERVAL_ERROR_KEY"
@@ -29,6 +29,6 @@
             android:summary="Minutes to wait when an error occurs"
             android:title="Retry delay" />
 
-    </android.support.v7.preference.PreferenceCategory>
+    </PreferenceCategory>
 
-</android.support.v7.preference.PreferenceScreen>
+</PreferenceScreen>

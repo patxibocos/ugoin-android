@@ -1,8 +1,8 @@
 package com.patxi.ugoin.ui
 
-import android.support.v7.app.AppCompatActivity
+import android.app.Activity
 import com.patxi.ugoin.App
 
-abstract class BaseActivity : AppCompatActivity()
+abstract class BaseActivity : Activity()
 
 val BaseActivity.app: App get() = application as App
