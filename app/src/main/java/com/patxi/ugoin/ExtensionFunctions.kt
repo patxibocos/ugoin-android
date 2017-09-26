@@ -22,8 +22,13 @@ inline fun android.app.FragmentManager.inTransaction(func: FragmentTransaction.(
     fragmentTransaction.commit()
 }
 
-fun Activity.addFragment(fragment: Fragment, frameId: Int) {
-    fragmentManager.inTransaction { add(frameId, fragment) }
+fun Activity.addFragment(fragment: Fragment, frameId: Int, addToBackStack: Boolean = true) {
+    fragmentManager.inTransaction {
+        add(frameId, fragment)
+        if (addToBackStack) {
+            addToBackStack(null)
+        }
+    }
 }
 
 
@@ -31,8 +36,11 @@ fun Activity.replaceFragment(fragment: Fragment, frameId: Int) {
     fragmentManager.inTransaction { replace(frameId, fragment) }
 }
 
-inline fun <reified T : Activity> Activity.startActivity() {
+inline fun <reified T : Activity> Activity.startActivity(clearCurrent: Boolean = false) {
     val intent = Intent(this, T::class.java)
+    if (clearCurrent) {
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+    }
     startActivity(intent)
 }
 

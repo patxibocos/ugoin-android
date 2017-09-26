@@ -21,7 +21,7 @@ class AuthActivity : BaseActivity(), AuthContract.AuthView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.auth_container)
-        addFragment(authFragment, container.id)
+        addFragment(authFragment, container.id, false)
         DaggerAuthComponent.builder().appComponent(app.component).authModule(AuthModule(this, loginFragment, registerFragment)).build().inject(this)
         authFragment.presenter = presenter
         loginFragment.presenter = presenter

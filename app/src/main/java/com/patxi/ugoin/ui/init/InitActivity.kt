@@ -22,11 +22,11 @@ class InitActivity : BaseActivity(), InitContract.View {
     }
 
     override fun goToAuthView() {
-        startActivity<AuthActivity>()
+        startActivity<AuthActivity>(clearCurrent = true)
     }
 
     override fun goToUserView() {
-        startActivity<MainActivity>()
+        startActivity<MainActivity>(clearCurrent = true)
     }
 
 }
